@@ -30,6 +30,9 @@
     echo ("the average is: $average");
     echo '<br/>';
 
+    $avgWOsum = calculateAvgWithoutSum($nums);
+    echo ("avg without Sum $avgWOsum");
+
 
     function calculateSum($numbers) {
         $sum = 0;
@@ -45,10 +48,13 @@
     }
 
 
-   //function calculateAvgWithoutSum($numbers, $totalSum) {
-
-
-
+   function calculateAvgWithoutSum($numbers) {
+    $totalSum = 0;
+    foreach ($numbers as $number) {
+            $totalSum += $number;
+}
+    return $totalSum / count($numbers);
+   }
 
 
 ?>
