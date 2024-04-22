@@ -18,7 +18,8 @@
 
 <body>
 <?php 
-    $nums = [10, 20, 30, 40, 50];// array
+    $nums = [10, -20, 60, 40, 50];// array
+
     //call functions AI MAIN 
 
 //------------------------call calculateSum---------------------
@@ -36,9 +37,15 @@
 //------------------------call calculateAvgWithoutSum---------------------
     $avgWOsum = calculateAvgWithoutSum($nums);
     echo ("avg without Sum $avgWOsum");
+    echo '<br/>';
 //------------------------END call calculateAvgWithoutSum---------------------
 
- maxvalue($nums);
+$max = maxvalue($nums);
+echo ("Max Value of the array: $max");
+echo '<br/>';
+
+$min = minvalue($nums);
+echo ("Min value of the array: $min");
 
 // --------------------FUNCTIONS ------------------------------------
 
@@ -68,13 +75,23 @@
    function maxvalue($numbers) {
     $max = $numbers[0];
     foreach ($numbers as $number) {
-        if ($max >= $number) {
+        if ($number > $max) {
             $max = $number;
     }
    }
-   echo $max;
+   return $max;
 }
 
+function minvalue($numbers) {
+$min = $numbers[0];
+foreach ($numbers as $number) {
+    if ($number < $min) {
+        $min = $number;
+    }
+
+}
+return $min;
+}
 ?>
 
 
