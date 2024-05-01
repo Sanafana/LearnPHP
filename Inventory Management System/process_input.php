@@ -10,6 +10,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
 $name = htmlspecialchars($_POST['fruit']);
+$price = htmlspecialchars($_POST['price']);
 $action = $_POST['action'];
 $found = false;
 
@@ -31,5 +32,20 @@ foreach ($inventory as $item){
         echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>";  
         echo "test";
     }
+}else if ($action == "update_price") {
+    updatePrice($inventory, $name, $price);
+    foreach ($inventory as $item){
+        echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>";  
+        echo "test";
+    }
 }
+
+function updatePrice (&$inventory, $name, $newPrice = null) {
+    if (isset($inventory[$name])){
+        if ($newPrice != null) {
+            $inventory[$name]["price"] = $newPrice;
+        }
+    }
+}
+
 }
