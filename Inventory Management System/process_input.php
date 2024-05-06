@@ -5,7 +5,35 @@
         ['name' => 'Oranges', 'price' => '0.40', 'quantity' => '10']
     ];
 
+    function updatePrice(&$inventory, $name, $newPrice = null) {
+  
+        $updated = false;
+        foreach ($inventory as $item){
+            if (strtolower($item['name']) == strtolower($name)){
+                $item['price'] = $newPrice;
+                $updated = true;
+            }
+            if (strtolower($item['name']) == strtolower($name)){
+    
+                echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>"; 
+            }
+            
+        }
+       
+    
+    
+    }
 
+    function calcinv ($inventory) {
+        $sum = 0;
+        foreach ($inventory as $item){
+            $sum += $item['price'] * $item['quantity'];  // Calculate total value
+        }
+        echo "Total Inventory Value: $" . number_format($sum, 2) . "<br>";
+    
+    }
+     
+    
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -33,19 +61,9 @@ foreach ($inventory as $item){
         echo "test";
     }
 }else if ($action == "update_price") {
-    updatePrice($inventory, $name, $price);
-    foreach ($inventory as $item){
-        echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>";  
-        echo "test";
-    }
+        updatePrice($inventory, $name, $price);
+   
+ }else if ($action == "calc_inv") {
+        calcinv ($inventory);
 }
-
-function updatePrice (&$inventory, $name, $newPrice = null) {
-    if (isset($inventory[$name])){
-        if ($newPrice != null) {
-            $inventory[$name]["price"] = $newPrice;
-        }
-    }
-}
-
 }
