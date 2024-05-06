@@ -28,3 +28,15 @@ see you tomorrow!
 Sanafana!
 
 ------------------------------------
+---------------07-05----------------
+Excuse of the week... 
+Work as been killing me...
+need more consistency! 
+
+Today I strungled with updating the quantity in the array and creating the inventory calculation function.
+
+it was simple but I'm dumb and couldn't do it for some reason.
+the main issue was calling the function before the code, I just pushed those 2 functions to the beginning of the file and it worked.
+thanks CHATGPT!
+-----------------------------------
+
