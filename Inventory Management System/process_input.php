@@ -16,12 +16,8 @@
             if (strtolower($item['name']) == strtolower($name)){
     
                 echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>"; 
-            }
-            
+            }  
         }
-       
-    
-    
     }
 
     function calcinv ($inventory) {
@@ -32,8 +28,25 @@
         echo "Total Inventory Value: $" . number_format($sum, 2) . "<br>";
     
     }
-     
+
+    function searchItem($inventory,$name) {
+        foreach ($inventory as $item){
+
+            if (strtolower($item['name']) == strtolower($name)){
+        
+                echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>"; 
+            }
     
+    }   
+}  
+    
+function listAll($inventory){
+    foreach ($inventory as $item){
+        echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>";  
+        echo "test";
+    }
+
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -43,23 +56,12 @@ $action = $_POST['action'];
 $found = false;
 
 if ($action == 'search') {
-
-foreach ($inventory as $item){
-
-    if (strtolower($item['name']) == strtolower($name)){
-
-        echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>"; 
-    }
+searchItem($inventory,$name);
 
 
-
-}
 }else if ($action == "list_all") {
+    listAll($inventory);
 
-    foreach ($inventory as $item){
-        echo "Item: {$item['name']}, Price: \${$item['price']}, Quantity: {$item['quantity']}<br>";  
-        echo "test";
-    }
 }else if ($action == "update_price") {
         updatePrice($inventory, $name, $price);
    
