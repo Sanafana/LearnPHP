@@ -40,3 +40,14 @@ the main issue was calling the function before the code, I just pushed those 2 f
 thanks CHATGPT!
 -----------------------------------
 
+-----------09-05-----------------
+
+With this I finished this litle project.
+it's not perfect but that's the plan, I just want to make the most ammount of small projects I can do,
+and no waste time trying to improve it.
+Simulate a basic inventory system where you have an array of items - Done
+each with properties like name, price, and quantity - Done
+Use foreach to loop through the items - Done
+Perform tasks like listing all items, updating quantities, and calculating total inventory value - Done
+
+
