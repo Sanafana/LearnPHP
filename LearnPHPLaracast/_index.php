@@ -24,30 +24,28 @@ $books = [
         ],	
 ];
 
-/*function filter ($items, $fn){
+ function filter($items, $fn) {
 
-    $filteredItems = [];
-    foreach ($items as $item) {
-        if ($fn($item)) {
-            $filteredItems[] = $item;
-        }
-    } 
-    return $filteredItems;
-}*/
+  $filteredItems = [];
 
+     foreach ($items as $item) {   
+       if ($fn($item)) {
+        $filteredItems[] = $item;
+  }
+}
+return $filteredItems;
+}
 
-
-//$filteredBooks = filter ($books, function($book){
-
-$filteredBooks = array_filter ($books, function($book){
-            return $book['releaseYear'] >=2000;
-            
+$filteredItems = filter ($books, function($books){
+ 
+  return $books['releaseYear'] <= 2000;
 });
 
 
 ?>
+
 <ul>
-  <?php foreach ($filteredBooks as $book) : ?>
+  <?php foreach ($filteredItems as $book) : ?>
     
     <li>
       <a href="<?= $book['purchaseURL'] ?>">
